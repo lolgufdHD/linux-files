@@ -4,7 +4,16 @@ set -e
 
 SERVICE_NAME="vban-receptor"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
-VBAN_CMD="/usr/local/bin/vban_receptor --ipaddress=192.168.1.21 --port=6980 --streamname=Stream1 --backend=pulseaudio"
+
+# Prompt user for input
+read -rp "Enter the IP address of the VBAN source: " ip_address
+read -rp "Enter the port number [default: 6980]: " port
+port=${port:-6980}
+
+read -rp "Enter the stream name (no spaces): " stream_name
+
+# Final command
+VBAN_CMD="/usr/local/bin/vban_receptor --ipaddress=$ip_address --port=$port --streamname=$stream_name --backend=pulseaudio"
 
 # Function to install dependencies and vban_receptor
 install_vban_receptor() {
@@ -12,9 +21,7 @@ install_vban_receptor() {
 
     # Detect distro
     distro=$(awk -F= '/^ID=/{print $2}' /etc/os-release | tr -d '"')
-
     echo "Detected distro: $distro"
-    echo "Installing dependencies..."
 
     case "$distro" in
         ubuntu|debian)
@@ -33,16 +40,14 @@ install_vban_receptor() {
             ;;
     esac
 
-    # Clone and build vban_receptor
     cd /tmp
     git clone https://github.com/quiniouben/vban_receptor.git
     cd vban_receptor
-    mkdir build && cd build
+    mkdir -p build && cd build
     cmake ..
     make
     cp vban_receptor /usr/local/bin/
-
-    echo "vban_receptor installed successfully."
+    echo "✅ vban_receptor installed to /usr/local/bin"
 }
 
 # Check for vban_receptor
@@ -75,7 +80,5 @@ systemctl daemon-reexec
 systemctl daemon-reload
 systemctl enable --now "$SERVICE_NAME"
 
-echo "Service status:"
+echo "✅ VBAN Receptor service created and running."
 systemctl status "$SERVICE_NAME" --no-pager
-
-echo "✅ VBAN Receptor is now running as a service."
