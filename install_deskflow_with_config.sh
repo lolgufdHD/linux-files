@@ -31,8 +31,8 @@ fi
 # --- Step 2: Download config file ---
 echo "⬇️ Downloading Deskflow config..."
 
-GITHUB_USER="yourusername"  # <-- Change this
-CONFIG_URL="https://raw.githubusercontent.com/$GITHUB_USER/linux-files/main/deskflow-config/config.yaml"
+GITHUB_USER="lolgufdHD"  # <-- Change this
+CONFIG_URL="https://raw.githubusercontent.com/$GITHUB_USER/linux-files/main/deskflow/config.yaml"
 DEST_DIR="$HOME/.config/deskflow"
 DEST_FILE="$DEST_DIR/config.yaml"
 
