@@ -24,7 +24,7 @@ install_vban_receptor() {
     echo "Detected distro: $distro"
 
     case "$distro" in
-        ubuntu|debian)
+        vanilla|ubuntu|debian)
             apt update
             apt install -y build-essential git cmake libpulse-dev
             ;;
