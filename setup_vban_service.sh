@@ -15,6 +15,13 @@ read -rp "Enter the stream name (no spaces): " stream_name
 # Final command
 VBAN_CMD="/usr/local/bin/vban_receptor --ipaddress=$ip_address --port=$port --streamname=$stream_name --backend=pulseaudio"
 
+# Check for vban_receptor
+if ! command vban_receptor -v != 0; then
+    install_vban_receptor
+else
+    echo "vban_receptor already installed."
+fi
+
 # Function to install dependencies and vban_receptor
 install_vban_receptor() {
     echo "Installing vban_receptor..."
@@ -49,13 +56,6 @@ install_vban_receptor() {
     cp vban_receptor /usr/local/bin/
     echo "✅ vban_receptor installed to /usr/local/bin"
 }
-
-# Check for vban_receptor
-if ! command vban_receptor -v != 0; then
-    install_vban_receptor
-else
-    echo "vban_receptor already installed."
-fi
 
 # Create systemd service
 echo "Creating systemd service..."
