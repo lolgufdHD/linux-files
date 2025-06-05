@@ -6,7 +6,7 @@ set -e
 echo "Installing Deskflow..."
 
 sudo dnf install -y flatpak
-flatpak install flathub org.deskflow.deskflow
+flatpak install org.deskflow.deskflow
 
 # --- Step 2: Download config file ---
 echo "Downloading Deskflow config..."
