@@ -3,7 +3,7 @@
 set -e
 
 # --- Step 1: Install Deskflow ---
-echo "🛠 Installing Deskflow..."
+echo "Installing Deskflow..."
 
 if ! command -v deskflow >/dev/null 2>&1; then
     distro=$(awk -F= '/^ID=/{print $2}' /etc/os-release | tr -d '"')
@@ -27,11 +27,11 @@ if ! command -v deskflow >/dev/null 2>&1; then
             ;;
     esac
 else
-    echo "✅ Deskflow already installed."
+    echo "Deskflow already installed."
 fi
 
 # --- Step 2: Download config file ---
-echo "⬇️ Downloading Deskflow config..."
+echo "Downloading Deskflow config..."
 
 GITHUB_USER="lolgufdHD"  # <-- Change this
 CONFIG_URL="https://raw.githubusercontent.com/$GITHUB_USER/linux-files/main/deskflow_config.conf"
@@ -41,10 +41,4 @@ DEST_FILE="$DEST_DIR/deskflow-server.conf"
 mkdir -p "$DEST_DIR"
 curl -fsSL "$CONFIG_URL" -o "$DEST_FILE"
 
-echo "✅ Config saved to: $DEST_FILE"
-
-# --- Step 3: Start Deskflow ---
-echo "🚀 Starting Deskflow..."
-deskflow &
-
-echo "🎉 Deskflow is ready with your custom config."
+echo "Config saved to: $DEST_FILE"
