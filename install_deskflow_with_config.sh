@@ -34,7 +34,7 @@ fi
 echo "⬇️ Downloading Deskflow config..."
 
 GITHUB_USER="lolgufdHD"  # <-- Change this
-CONFIG_URL="https://raw.githubusercontent.com/$GITHUB_USER/linux-files/main/deskflow/config.yaml"
+CONFIG_URL="https://raw.githubusercontent.com/$GITHUB_USER/linux-files/main/deskflow_config.yaml"
 DEST_DIR="$HOME/.config/deskflow"
 DEST_FILE="$DEST_DIR/config.yaml"
 
