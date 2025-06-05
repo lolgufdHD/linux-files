@@ -51,7 +51,7 @@ install_vban_receptor() {
 }
 
 # Check for vban_receptor
-if ! command vban_receptor -v != 0; then
+if ! command -v vban_receptor >/dev/null 2>&1; then
     install_vban_receptor
 else
     echo "vban_receptor already installed."
