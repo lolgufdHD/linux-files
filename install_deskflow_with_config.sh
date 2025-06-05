@@ -15,7 +15,7 @@ if ! command -v deskflow >/dev/null 2>&1; then
             ;;
         fedora)
             sudo dnf install -y flatpak
-            flatpak install deskflow
+            flatpak install flathub org.deskflow.deskflow
             ;;
         arch)
             sudo pacman -Sy --noconfirm deskflow
