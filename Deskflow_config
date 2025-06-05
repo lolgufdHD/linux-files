@@ -1,0 +1,39 @@
+section: screens
+	PC-Windows:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none
+		switchCornerSize = 0
+	localhost-live.localdomain:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none
+		switchCornerSize = 0
+end
+
+section: aliases
+end
+
+section: links
+	PC-Windows:
+		right = localhost-live.localdomain
+	localhost-live.localdomain:
+		left = PC-Windows
+end
+
+section: options
+	protocol = barrier
+	relativeMouseMoves = true
+	win32KeepForeground = false
+	disableLockToScreen = false
+	clipboardSharing = true
+	clipboardSharingSize = 3072
+	switchCorners = none +bottom-left +bottom-right 
+	switchCornerSize = 20
+	keystroke(Control+Shift+!) = lockCursorToScreen(toggle)
+end
+
