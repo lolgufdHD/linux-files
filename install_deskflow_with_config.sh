@@ -9,17 +9,9 @@ if ! command -v deskflow >/dev/null 2>&1; then
     distro=$(awk -F= '/^ID=/{print $2}' /etc/os-release | tr -d '"')
 
     case "$distro" in
-        ubuntu|debian)
-            sudo apt update
-            sudo apt install -y deskflow
-            ;;
         fedora)
             sudo dnf install -y flatpak
             flatpak install flathub org.deskflow.deskflow
-            ;;
-        arch)
-            sudo pacman -Sy --noconfirm deskflow
-            ;;
         *)
             echo "Unsupported distro: $distro. Please install Deskflow manually."
             exit 1
