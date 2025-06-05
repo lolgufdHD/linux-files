@@ -8,8 +8,8 @@ echo "Installing Deskflow..."
 if ! command -v deskflow >/dev/null 2>&1; then
     distro=$(awk -F= '/^ID=/{print $2}' /etc/os-release | tr -d '"')
 
-    case "fedora" in
-        vanilla|ubuntu|debian)
+    case "$distro" in
+        ubuntu|debian)
             sudo apt update
             sudo apt install -y deskflow
             ;;
@@ -20,7 +20,6 @@ if ! command -v deskflow >/dev/null 2>&1; then
             sudo pacman -Sy --noconfirm deskflow
             ;;
         *)
-            sudo dnf install -y deskflow
             echo "Unsupported distro: $distro. Please install Deskflow manually."
             exit 1
             ;;
