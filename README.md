@@ -8,5 +8,5 @@ bash <(curl -s https://raw.githubusercontent.com/lolgufdHD/linux-files/main/setu
 
 To install Deskflow with my config use:
 ```
-bash <(curl -s https://raw.githubusercontent.com/lolgufdHD/linux-files/main/scripts/install_deskflow_with_config.sh)
+bash <(curl -s https://raw.githubusercontent.com/lolgufdHD/linux-files/main/install_deskflow_with_config.sh)
 ```
