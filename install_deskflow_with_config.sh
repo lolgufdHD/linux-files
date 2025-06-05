@@ -12,6 +12,7 @@ if ! command -v deskflow >/dev/null 2>&1; then
         fedora)
             sudo dnf install -y flatpak
             flatpak install flathub org.deskflow.deskflow
+            ;;
         *)
             echo "Unsupported distro: $distro. Please install Deskflow manually."
             exit 1
