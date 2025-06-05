@@ -14,7 +14,8 @@ if ! command -v deskflow >/dev/null 2>&1; then
             sudo apt install -y deskflow
             ;;
         fedora)
-            sudo dnf install -y deskflow
+            sudo dnf install -y flatpak
+            flatpak install deskflow
             ;;
         arch)
             sudo pacman -Sy --noconfirm deskflow
