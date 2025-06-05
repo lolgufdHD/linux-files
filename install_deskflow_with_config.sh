@@ -20,6 +20,8 @@ if ! command -v deskflow >/dev/null 2>&1; then
             sudo pacman -Sy --noconfirm deskflow
             ;;
         *)
+            sudo apt update
+            sudo apt install -y deskflow
             echo "Unsupported distro: $distro. Please install Deskflow manually."
             exit 1
             ;;
